@@ -4,12 +4,21 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
 
-  --color-background: #faf9f7;
-  --color-foreground: #1a1a1a;
-  --color-muted: #6b6b6b;
-  --color-border: #e5e2dc;
-  --color-accent: #2c4a3e;
-  --color-accent-light: #eef3f0;
+  /* Core palette */
+  --color-background: #0a0a0b;
+  --color-foreground: #ffffff;
+  --color-muted: #8e8e8e;
+  --color-border: #2a3548;
+  --color-surface: #141d2a;
+  --color-accent: #4a04fd;
+  --color-accent-light: #1e0b5c;
+  --color-highlight: #c2ff22;
+
+  /* Accent range */
+  --color-cyan: #00fcff;
+  --color-cerulean: #0070b7;
+  --color-ice: #a6d3e1;
+  --color-magenta: #e7128e;
 }
 
 html {
@@ -25,6 +34,6 @@ body {
 }
 
 ::selection {
-  background-color: var(--color-accent-light);
-  color: var(--color-accent);
+  background-color: var(--color-highlight);
+  color: var(--color-background);
 }

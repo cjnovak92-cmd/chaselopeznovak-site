@@ -8,7 +8,7 @@ export function WhatIDo() {
         {services.map((service) => (
           <article
             key={service.title}
-            className="rounded-2xl border border-border/80 bg-white/50 p-6 transition-shadow hover:shadow-sm md:p-8"
+            className="rounded-2xl border border-border/80 bg-surface/60 p-6 transition-shadow hover:border-accent/20 hover:shadow-sm md:p-8"
           >
             <h3 className="font-serif text-xl text-foreground">{service.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted md:text-base">

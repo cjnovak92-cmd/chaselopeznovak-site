@@ -18,7 +18,7 @@ export function WorkWithMe() {
       <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
         <a
           href={`mailto:${site.email}`}
-          className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+          className="inline-flex items-center justify-center rounded-full bg-highlight px-7 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
         >
           {workWithMe.cta}
         </a>
