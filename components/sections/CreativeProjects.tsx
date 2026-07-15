@@ -8,7 +8,7 @@ export function CreativeProjects() {
         {projects.map((project) => (
           <article
             key={project.title}
-            className="group flex flex-col rounded-2xl border border-border/80 bg-white/50 p-6 transition-all hover:border-accent/30 hover:shadow-sm md:p-8"
+            className="group flex flex-col rounded-2xl border border-border/80 bg-surface/60 p-6 transition-all hover:border-accent/30 hover:shadow-sm md:p-8"
           >
             <h3 className="font-serif text-xl text-foreground transition-colors group-hover:text-accent">
               {project.href ? (

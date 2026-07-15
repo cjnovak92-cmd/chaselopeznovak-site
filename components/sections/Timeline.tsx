@@ -5,9 +5,9 @@ const categoryStyles: Record<
   (typeof timeline)[number]["category"],
   string
 > = {
-  Education: "bg-accent-light text-accent",
-  Work: "bg-foreground/5 text-foreground",
-  Personal: "bg-border/40 text-muted",
+  Education: "bg-accent/20 text-ice",
+  Work: "bg-cerulean/20 text-cyan",
+  Personal: "bg-magenta/20 text-magenta",
 };
 
 export function Timeline() {
@@ -34,7 +34,7 @@ export function Timeline() {
               <time className="text-sm font-medium text-muted">{entry.year}</time>
             </div>
 
-            <div className="rounded-2xl border border-border/80 bg-white/40 p-6 md:p-7">
+            <div className="rounded-2xl border border-border/80 bg-surface/50 p-6 md:p-7">
               <span
                 className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${categoryStyles[entry.category]}`}
               >
