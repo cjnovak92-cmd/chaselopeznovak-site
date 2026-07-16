@@ -1,23 +1,57 @@
+import { Wordmark } from "@/components/Wordmark";
 import { introduction, site } from "@/lib/content";
-import { Section } from "@/components/Section";
 
 export function Introduction() {
   return (
-    <Section id="introduction" label="Introduction" title={introduction.headline}>
-      <div className="grid gap-12 md:grid-cols-[1fr_1.2fr] md:gap-16">
-        <div>
-          <p className="font-serif text-2xl leading-snug text-foreground md:text-3xl">
-            {site.name}
-          </p>
-          <p className="mt-3 text-muted">{site.tagline}</p>
+    <section
+      id="introduction"
+      aria-labelledby="introduction-heading"
+      className="homepage-hero scroll-mt-[var(--spacing-masthead)] border-b border-border"
+    >
+      <div className="mx-auto max-w-content px-site-gutter">
+        <div className="hero-identity">
+          <Wordmark
+            name={site.name}
+            variant="vertical"
+            as="h1"
+            className="hero-wordmark"
+          />
+          <span
+            id="hero-wordmark-sentinel"
+            aria-hidden="true"
+            className="hero-wordmark-sentinel"
+          />
+          <p className="hero-tagline">{site.tagline}</p>
+          <span aria-hidden="true" className="hero-ornament">
+            <span />
+            <span>✦</span>
+            <span />
+          </span>
         </div>
 
-        <div className="space-y-5 text-base leading-relaxed text-muted md:text-lg">
-          {introduction.paragraphs.map((paragraph) => (
-            <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-          ))}
+        <div className="hero-introduction">
+          <div className="hero-introduction__content">
+            <h2
+              id="introduction-heading"
+              aria-label={introduction.headingLines.join(" ")}
+              className="hero-heading"
+            >
+              {introduction.headingLines.map((line) => (
+                <span
+                  key={line}
+                  aria-hidden="true"
+                  className="hero-heading__line"
+                >
+                  {line}
+                </span>
+              ))}
+            </h2>
+            <p className="hero-introduction__paragraph">
+              {introduction.paragraph}
+            </p>
+          </div>
         </div>
       </div>
-    </Section>
+    </section>
   );
 }

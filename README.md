@@ -15,7 +15,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Customizing content
 
-All copy and site data live in `lib/content.ts`. Update that file to change text, timeline entries, projects, and contact details without touching layout code.
+Timeline events live in `data/timeline.csv`, the canonical timeline source. See `docs/timeline-system.md` for its columns, validation rules, and ordering contract.
+
+The remaining homepage copy and navigation data live in `lib/content.ts`.
 
 ## Scripts
 

@@ -1,53 +1,55 @@
-import { timeline } from "@/lib/content";
 import { Section } from "@/components/Section";
+import { TimelineExplorer } from "@/components/timeline/TimelineExplorer";
+import type { TimelinePresentationEvent } from "@/components/timeline/types";
+import { loadTimelineEvents } from "@/lib/timeline/load.server";
+import {
+  TIMELINE_CATEGORIES,
+  type TimelineEvent,
+} from "@/lib/timeline/types";
 
-const categoryStyles: Record<
-  (typeof timeline)[number]["category"],
-  string
-> = {
-  Education: "bg-accent-light text-accent",
-  Work: "bg-foreground/5 text-foreground",
-  Personal: "bg-border/40 text-muted",
-};
+function createPresentationId(
+  event: Pick<TimelineEvent, "yearStart" | "sortOrder">,
+  index: number,
+): string {
+  return `timeline-${event.yearStart}-${event.sortOrder ?? "only"}-${index}`;
+}
+
+function toPresentationEvent(
+  event: TimelineEvent,
+  index: number,
+): TimelinePresentationEvent {
+  const presentationEvent = {
+    id: createPresentationId(event, index),
+    title: event.title,
+    dateLabel: event.dateLabel,
+    yearStart: event.yearStart,
+    yearEnd: event.yearEnd,
+    sortOrder: event.sortOrder,
+    description: event.description,
+    category: event.category,
+  };
+
+  return event.image
+    ? {
+        ...presentationEvent,
+        image: event.image,
+        imageAlt: event.imageAlt,
+      }
+    : presentationEvent;
+}
 
 export function Timeline() {
+  const timeline = loadTimelineEvents();
+  const events = timeline.map(toPresentationEvent);
+
   return (
     <Section
       id="timeline"
       label="Timeline"
       title="Education, work, and the experiences that shaped me."
+      className="timeline-section"
     >
-      <ol className="relative space-y-0">
-        {timeline.map((entry, index) => (
-          <li
-            key={`${entry.year}-${entry.title}`}
-            className="relative grid gap-4 pb-12 md:grid-cols-[140px_1fr] md:gap-10"
-          >
-            {index < timeline.length - 1 && (
-              <span
-                aria-hidden
-                className="absolute left-[69px] top-8 hidden h-[calc(100%-1rem)] w-px bg-border md:block"
-              />
-            )}
-
-            <div className="md:pt-1">
-              <time className="text-sm font-medium text-muted">{entry.year}</time>
-            </div>
-
-            <div className="rounded-2xl border border-border/80 bg-white/40 p-6 md:p-7">
-              <span
-                className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${categoryStyles[entry.category]}`}
-              >
-                {entry.category}
-              </span>
-              <h3 className="mt-4 font-serif text-xl text-foreground">{entry.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted md:text-base">
-                {entry.description}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <TimelineExplorer events={events} categories={TIMELINE_CATEGORIES} />
     </Section>
   );
 }

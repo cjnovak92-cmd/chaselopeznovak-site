@@ -13,15 +13,15 @@ export function Section({ id, label, title, children, className = "" }: SectionP
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className={`scroll-mt-20 border-b border-border/60 py-20 md:py-28 ${className}`}
+      className={`scroll-mt-[calc(var(--spacing-masthead)+1rem)] border-b border-border py-section ${className}`}
     >
-      <div className="mx-auto max-w-5xl px-6">
-        <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-muted">
+      <div className="mx-auto max-w-content px-site-gutter">
+        <p className="mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-label text-muted after:h-px after:w-10 after:bg-timeline-gold/60">
           {label}
         </p>
         <h2
           id={`${id}-heading`}
-          className="mb-10 max-w-2xl font-serif text-3xl tracking-tight text-foreground md:text-4xl"
+          className="mb-12 max-w-reading font-serif text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.02] tracking-[-0.03em] text-foreground md:mb-16"
         >
           {title}
         </h2>
