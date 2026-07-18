@@ -44,8 +44,8 @@ export function Timeline() {
 
   return (
     <Section
-      id="timeline"
-      label="Timeline"
+      id="memoryline"
+      label="Memoryline"
       title="Education, work, and the experiences that shaped me."
       className="timeline-section"
     >

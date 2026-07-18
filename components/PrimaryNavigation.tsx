@@ -18,7 +18,7 @@ export function PrimaryNavigation({
         {items.map((item) => (
           <li key={item.id}>
             <a
-              href={`#${item.id}`}
+              href={item.href}
               className="primary-navigation__link"
             >
               <span>{item.label}</span>

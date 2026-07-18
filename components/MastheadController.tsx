@@ -14,7 +14,7 @@ type MastheadControllerProps = {
 export function MastheadController({ name }: MastheadControllerProps) {
   const pathname = usePathname();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isCompact, setIsCompact] = useState(false);
+  const [isCompact, setIsCompact] = useState(pathname !== "/");
   const [identityHasFocus, setIdentityHasFocus] = useState(false);
   const showIdentity = isCompact || identityHasFocus;
 

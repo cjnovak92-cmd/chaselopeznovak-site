@@ -13,7 +13,7 @@ export function TimelineDetailPanel({
   return (
     <aside
       className="timeline-detail-region"
-      aria-label={event ? undefined : "Timeline event details"}
+      aria-label={event ? undefined : "Memoryline event details"}
     >
       <div className="timeline-detail-panel">
         {event ? (
@@ -28,7 +28,7 @@ export function TimelineDetailPanel({
               ✦
             </span>
             <h3>Select an event</h3>
-            <p>Choose an event from the timeline to read its details.</p>
+            <p>Choose an event from the memoryline to read its details.</p>
           </div>
         )}
       </div>

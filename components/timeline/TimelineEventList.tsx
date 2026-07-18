@@ -20,7 +20,7 @@ export function TimelineEventList({
 }: TimelineEventListProps) {
   return (
     <div className="timeline-event-list-shell">
-      <p className="timeline-region-label">Timeline</p>
+      <p className="timeline-region-label">Memoryline</p>
       {events.length > 0 ? (
         <ol className="timeline-event-list">
           {events.map((event) => {
@@ -57,7 +57,7 @@ export function TimelineEventList({
         </ol>
       ) : (
         <div className="timeline-zero-state">
-          <p>No timeline events match this filter.</p>
+          <p>No memoryline events match this filter.</p>
         </div>
       )}
     </div>

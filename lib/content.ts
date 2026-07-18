@@ -1,6 +1,7 @@
 export type NavItem = {
   id: string;
   label: string;
+  href: string;
 };
 
 export const site = {
@@ -9,7 +10,12 @@ export const site = {
 };
 
 export const navigation: NavItem[] = [
-  { id: "timeline", label: "Timeline" },
+  { id: "memoryline", label: "Memoryline", href: "/#memoryline" },
+  {
+    id: "creative-work",
+    label: "Creative Work",
+    href: "/creative-work",
+  },
 ];
 
 export const introduction = {
@@ -19,5 +25,5 @@ export const introduction = {
     "welcome to my website!",
   ],
   paragraph:
-    "Feel free to peruse my timeline below to get to know me and don’t forget to explore my creative work :)",
+    "Feel free to peruse my memoryline below to get to know me and don’t forget to explore my creative work :)",
 };

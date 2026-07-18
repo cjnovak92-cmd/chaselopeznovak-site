@@ -38,7 +38,7 @@ export function TimelineFilters({
 
   return (
     <fieldset className="timeline-filters">
-      <legend className="timeline-region-label">Filter timeline</legend>
+      <legend className="timeline-region-label">Filter memoryline</legend>
       <div className="timeline-filters__scroller">
         <div className="timeline-filters__list">
           {options.map((option) => (
