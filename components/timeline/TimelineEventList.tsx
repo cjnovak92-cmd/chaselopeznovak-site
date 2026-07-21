@@ -21,8 +21,11 @@ export function TimelineEventList({
   return (
     <div className="timeline-event-list-shell">
       <p className="timeline-region-label">Memoryline</p>
+      <p className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+        {events.length} {events.length === 1 ? "event" : "events"} shown.
+      </p>
       {events.length > 0 ? (
-        <ol className="timeline-event-list">
+        <ol id="timeline-event-list" className="timeline-event-list">
           {events.map((event) => {
             const canExpand = hasTimelineEventDetails(event);
             const isSelected = canExpand && selectedEventId === event.id;

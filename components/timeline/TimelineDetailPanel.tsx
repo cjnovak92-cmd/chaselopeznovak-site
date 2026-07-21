@@ -14,7 +14,7 @@ export function TimelineDetailPanel({
     <aside
       className="timeline-detail-region"
       data-category={event?.category}
-      aria-label={event ? undefined : "Memoryline event details"}
+      aria-label="Memoryline event details"
     >
       <div className="timeline-detail-panel">
         {event ? (

@@ -108,6 +108,40 @@ a {
   text-underline-offset: 0.2em;
 }
 
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--color-focus);
+  border-radius: var(--radius-control);
+  background: var(--color-paper-raised);
+  color: var(--color-foreground);
+  font-size: 0.875rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-soft);
+}
+
+.skip-link:not(:focus-visible) {
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+#main-content {
+  scroll-margin-top: calc(var(--spacing-masthead) + 1rem);
+}
+
 .site-masthead {
   min-height: var(--spacing-masthead);
   border-color: color-mix(in srgb, var(--color-border-strong) 38%, transparent);
@@ -2372,7 +2406,10 @@ button.timeline-event-button:hover {
   }
 
   .hero-wordmark,
-  .masthead-wordmark-link {
+  .masthead-wordmark-link,
+  .timeline-event__node,
+  .software-project-tile__image,
+  .story-reveal__symbol {
     transform: none !important;
     transition: none !important;
   }
@@ -2422,6 +2459,7 @@ button.timeline-event-button:hover {
   }
 
   .site-masthead,
+  .skip-link,
   .timeline-filter-region,
   .timeline-filter-button,
   .timeline-event-button,
@@ -2439,8 +2477,24 @@ button.timeline-event-button:hover {
   }
 
   .timeline-filter-button[aria-pressed="true"],
-  .timeline-event-button[aria-pressed="true"] {
+  .timeline-event-button[aria-pressed="true"],
+  .story-collection-button[aria-expanded="true"],
+  .story-reveal[open] {
     border: 2px solid CanvasText;
+  }
+
+  .timeline-filter-button:not([data-category])[aria-pressed="true"] {
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .timeline-filter-button__count,
+  .timeline-filter-button[data-category][aria-pressed="true"]
+    .timeline-filter-button__count,
+  .timeline-filter-button:not([data-category])[aria-pressed="true"]
+    .timeline-filter-button__count {
+    background: CanvasText;
+    color: Canvas;
   }
 
   .timeline-event-list::before,

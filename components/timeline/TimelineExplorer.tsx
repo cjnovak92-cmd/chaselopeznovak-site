@@ -1,9 +1,13 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { TimelineDetailPanel } from "@/components/timeline/TimelineDetailPanel";
 import { TimelineEventList } from "@/components/timeline/TimelineEventList";
 import { TimelineFilters } from "@/components/timeline/TimelineFilters";
+import {
+  filterTimelineEvents,
+  getVisibleTimelineSelection,
+} from "@/components/timeline/state";
 import {
   hasTimelineEventDetails,
   type TimelineFilter,
@@ -37,10 +41,7 @@ export function TimelineExplorer({
   }, [categories, events]);
 
   const visibleEvents = useMemo(
-    () =>
-      selectedFilter === "All"
-        ? events
-        : events.filter((event) => event.category === selectedFilter),
+    () => filterTimelineEvents(events, selectedFilter),
     [events, selectedFilter],
   );
 
@@ -53,17 +54,12 @@ export function TimelineExplorer({
 
   const handleFilterChange = (filter: TimelineFilter) => {
     setSelectedFilter(filter);
-    setSelectedEventId((currentId) => {
-      if (!currentId || filter === "All") {
-        return currentId;
-      }
-
-      const currentEvent = events.find((event) => event.id === currentId);
-      return currentEvent?.category === filter ? currentId : null;
-    });
+    setSelectedEventId((currentId) =>
+      getVisibleTimelineSelection(events, filter, currentId),
+    );
   };
 
-  const clearSelection = () => {
+  const clearSelection = useCallback(() => {
     const eventId = selectedEventId;
     setSelectedEventId(null);
 
@@ -76,7 +72,23 @@ export function TimelineExplorer({
           ?.focus();
       });
     }
-  };
+  }, [selectedEventId]);
+
+  useEffect(() => {
+    if (!selectedEventId) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        clearSelection();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [clearSelection, selectedEventId]);
 
   return (
     <div className="timeline-explorer">

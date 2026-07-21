@@ -31,3 +31,5 @@ The remaining homepage copy and centralized navigation data live in `lib/content
 - `npm run build` — create a production build
 - `npm run start` — serve the production build
 - `npm run lint` — run ESLint
+- `npm run typecheck` — check TypeScript without emitting files
+- `npm test` — run the focused timeline parsing, sorting, and filtering tests

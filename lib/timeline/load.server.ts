@@ -3,6 +3,7 @@ import "next/dist/compiled/server-only";
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
 import { parseTimelineCsv, type ParsedTimelineEvent } from "./parse";
+import { compareTimelineEventsByChronology } from "./sort";
 import type { TimelineEvent } from "./types";
 
 const TIMELINE_CSV_PATH = path.join(process.cwd(), "data", "timeline.csv");
@@ -91,14 +92,8 @@ export function loadTimelineEvents(): TimelineEvent[] {
 
   return parsedEvents
     .filter(({ event }) => event.visibility === "Public")
-    .sort((left, right) => {
-      const yearDifference = left.event.yearStart - right.event.yearStart;
-
-      if (yearDifference !== 0) {
-        return yearDifference;
-      }
-
-      return (left.event.sortOrder ?? 0) - (right.event.sortOrder ?? 0);
-    })
+    .sort((left, right) =>
+      compareTimelineEventsByChronology(left.event, right.event),
+    )
     .map(({ event }) => event);
 }

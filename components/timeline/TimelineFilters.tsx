@@ -48,6 +48,7 @@ export function TimelineFilters({
               className="timeline-filter-button"
               data-category={option.category}
               aria-pressed={selectedFilter === option.value}
+              aria-controls="timeline-event-list"
               onClick={() => onFilterChange(option.value)}
             >
               <span className="timeline-filter-button__marker" aria-hidden />
