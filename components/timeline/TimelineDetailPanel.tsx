@@ -13,6 +13,7 @@ export function TimelineDetailPanel({
   return (
     <aside
       className="timeline-detail-region"
+      data-category={event?.category}
       aria-label={event ? undefined : "Memoryline event details"}
     >
       <div className="timeline-detail-panel">

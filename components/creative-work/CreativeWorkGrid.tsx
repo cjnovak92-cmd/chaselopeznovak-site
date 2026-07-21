@@ -9,12 +9,8 @@ export function CreativeWorkGrid({ categories }: CreativeWorkGridProps) {
   return (
     <section aria-label="Creative work categories">
       <div className="creative-work-grid">
-        {categories.map((category, index) => (
-          <CreativeWorkTile
-            key={category.id}
-            category={category}
-            index={index}
-          />
+        {categories.map((category) => (
+          <CreativeWorkTile key={category.id} category={category} />
         ))}
       </div>
     </section>

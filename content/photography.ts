@@ -184,4 +184,12 @@ export const photographs = [
   },
 ] satisfies Photograph[];
 
-export const featuredPhotographs = photographs.slice(0, 3);
+const featuredPhotographIds = [
+  "milky-way",
+  "the-street-wheelers",
+  "micro-flower",
+] as const;
+
+export const featuredPhotographs = featuredPhotographIds.map(
+  (id) => photographs.find((photograph) => photograph.id === id)!,
+);

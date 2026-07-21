@@ -16,6 +16,7 @@ export function TimelineEventDetails({
     <article
       id={detailId}
       className="timeline-event-details"
+      data-category={event.category}
       data-has-description={Boolean(event.description)}
       aria-label={`Details for ${event.title}`}
     >

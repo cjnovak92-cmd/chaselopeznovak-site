@@ -3,7 +3,7 @@ import { featuredPhotographs } from "@/content/photography";
 import { gameMood } from "@/content/software";
 import { theInformationWars } from "@/content/stories";
 
-export const CREATIVE_WORK_ACCENTS = ["blue", "green", "red", "gold"] as const;
+export const CREATIVE_WORK_ACCENTS = ["blue", "green", "red"] as const;
 
 export type CreativeWorkAccent = (typeof CREATIVE_WORK_ACCENTS)[number];
 
@@ -39,7 +39,7 @@ export const creativeWorkCategories = [
   {
     id: "photography",
     title: "Photography",
-    accent: "blue",
+    accent: "red",
     images: featuredPhotographs,
     href: "/creative-work/photography",
     actionLabel: "View photography",
@@ -47,7 +47,7 @@ export const creativeWorkCategories = [
   {
     id: "essays",
     title: "Essays",
-    accent: "green",
+    accent: "blue",
     essayPreview: {
       label: "Essay",
       title: latestEssay.title,
@@ -62,7 +62,7 @@ export const creativeWorkCategories = [
   {
     id: "screenwriting",
     title: "Stories",
-    accent: "red",
+    accent: "blue",
     image: {
       src: "/images/stories/the-information-wars-preview.png",
       alt: `Title-page preview for “${theInformationWars.title}.”`,
@@ -76,10 +76,10 @@ export const creativeWorkCategories = [
   {
     id: "software",
     title: "Software",
-    accent: "gold",
+    accent: "green",
     image: {
       ...gameMood.creativeWorkPreview,
-      presentation: "cover",
+      presentation: "contained",
     },
     href: "/creative-work/software",
     actionLabel: "Explore software",

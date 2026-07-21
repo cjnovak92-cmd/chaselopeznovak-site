@@ -13,7 +13,6 @@ export default function EssaysPage() {
         <Link href="/creative-work" className="essay-back-link">
           <span aria-hidden="true">←</span> Creative Work
         </Link>
-        <p className="essay-kicker">Writing</p>
         <h1>Essays</h1>
         <p className="essay-index-count">
           {essays.length} published {essays.length === 1 ? "essay" : "essays"}

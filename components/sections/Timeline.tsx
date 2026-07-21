@@ -45,8 +45,8 @@ export function Timeline() {
   return (
     <Section
       id="memoryline"
-      label="Memoryline"
-      title="Education, work, and the experiences that shaped me."
+      title="My Memoryline"
+      subtitle="The memories and events that have shaped my life"
       className="timeline-section"
     >
       <TimelineExplorer events={events} categories={TIMELINE_CATEGORIES} />
