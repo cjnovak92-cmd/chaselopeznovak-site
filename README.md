@@ -24,6 +24,7 @@ Story titles and available details live in `content/stories.ts`; published story
 Software projects live in `content/software.ts` and render at `/creative-work/software`; each project links directly to its external site.
 
 The remaining homepage copy and centralized navigation data live in `lib/content.ts`.
+Update `site.version` in that file when publishing a new public site release.
 
 ## Scripts
 

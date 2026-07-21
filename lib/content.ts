@@ -7,6 +7,8 @@ export type NavItem = {
 export const site = {
   name: "Chase Lopez Novak",
   tagline: "Sensitive, Intuitive, Inquisitive, Creative",
+  version: "1.0",
+  copyrightYear: 2026,
 };
 
 export const navigation: NavItem[] = [
