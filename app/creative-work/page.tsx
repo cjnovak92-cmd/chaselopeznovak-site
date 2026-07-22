@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
 import { CreativeWorkGrid } from "@/components/creative-work/CreativeWorkGrid";
 import { creativeWorkCategories } from "@/content/creative-work";
+import { getPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = getPageMetadata({
   title: "Creative Work",
-};
+  path: "/creative-work",
+});
 
 export default function CreativeWorkPage() {
   return (

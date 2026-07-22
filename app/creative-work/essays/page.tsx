@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { essays } from "@/content/essays";
+import { getPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = getPageMetadata({
   title: "Essays",
-};
+  path: "/creative-work/essays",
+});
 
 export default function EssaysPage() {
   return (

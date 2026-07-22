@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import {
   StoriesExplorer,
   type StoriesExplorerCollection,
 } from "@/components/stories/StoriesExplorer";
 import { stories, storyCollections } from "@/content/stories";
+import { getPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = getPageMetadata({
   title: "Stories",
-};
+  path: "/creative-work/stories",
+});
 
 export default function StoriesPage() {
   const storiesBySlug = new Map(stories.map((story) => [story.slug, story]));

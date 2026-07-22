@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { SoftwareProjectTile } from "@/components/software/SoftwareProjectTile";
 import { softwareProjects } from "@/content/software";
+import { getPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = getPageMetadata({
   title: "Software",
-};
+  path: "/creative-work/software",
+});
 
 export default function SoftwarePage() {
   return (

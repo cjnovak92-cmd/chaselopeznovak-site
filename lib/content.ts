@@ -7,9 +7,15 @@ export type NavItem = {
 export const site = {
   name: "Chase Lopez Novak",
   tagline: "Sensitive, Intuitive, Inquisitive, Creative",
+  url: "https://chaselopeznovak.com",
+  locale: "en_US",
   version: "1.0",
   copyrightYear: 2026,
 };
+
+export function absoluteUrl(pathname = "/") {
+  return new URL(pathname, site.url).toString();
+}
 
 export const navigation: NavItem[] = [
   { id: "memoryline", label: "Memoryline", href: "/#memoryline" },
@@ -18,6 +24,7 @@ export const navigation: NavItem[] = [
     label: "Creative Work",
     href: "/creative-work",
   },
+  { id: "manifesto", label: "Manifesto", href: "/manifesto" },
 ];
 
 export const introduction = {

@@ -16,6 +16,7 @@ export type StoryDetail = {
 export type Story = {
   slug: string;
   title: string;
+  titleLines?: string[];
   collectionId: "screenwriting" | "short-stories";
   comparison?: string;
   descriptor?: string;
@@ -33,6 +34,7 @@ export type StoryCollection = {
 export const theInformationWars = {
   slug: "the-information-wars",
   title: "The Information Wars",
+  titleLines: ["The", "Information", "Wars"],
   collectionId: "screenwriting",
   comparison: "Rope x Steve Jobs",
   status: "Full script coming soon!",
@@ -47,7 +49,7 @@ export const theInformationWars = {
         logline:
           "Amongst their family garage-turned-lab, a mother and son scientist duo converse through time, hoping to uncover the secrets of black holes while trying to keep their sanity, and memories, intact.",
         setting:
-          "The single setting of the story is a garage in a Northern Californian suburban neighborhood. The action of the story are continuous, even through time jumps.",
+          "The single setting of the story is a garage in a Northern Californian suburban neighborhood. The action of the story is continuous, even through time jumps.",
         comparison: "Rope x Steve Jobs",
         status: "Full script coming soon!",
       },

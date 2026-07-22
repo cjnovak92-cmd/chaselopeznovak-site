@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getStoryBySlug, stories } from "@/content/stories";
+import { site } from "@/lib/content";
+import { getPageMetadata } from "@/lib/metadata";
 
 type StoryPageProps = {
   params: Promise<{ slug: string }>;
@@ -19,7 +21,18 @@ export async function generateMetadata({
   const { slug } = await params;
   const story = getStoryBySlug(slug);
 
-  return story ? { title: story.title } : {};
+  if (!story?.detail) {
+    return {};
+  }
+
+  const description = story.detail.formats[0]?.logline ?? site.tagline;
+
+  return getPageMetadata({
+    title: story.title,
+    description,
+    path: `/creative-work/stories/${story.slug}`,
+    type: "article",
+  });
 }
 
 export default async function StoryPage({ params }: StoryPageProps) {
@@ -37,7 +50,18 @@ export default async function StoryPage({ params }: StoryPageProps) {
           <span aria-hidden="true">←</span> Stories
         </Link>
         <p className="story-kicker">Screenplay</p>
-        <h1>{story.title}</h1>
+        <h1
+          aria-label={story.titleLines ? story.title : undefined}
+          className={story.titleLines ? "story-detail-title--stacked" : undefined}
+        >
+          {story.titleLines
+            ? story.titleLines.map((line) => (
+                <span key={line} aria-hidden="true">
+                  {line}
+                </span>
+              ))
+            : story.title}
+        </h1>
         <p className="story-detail-author">Written by {story.detail.author}</p>
         {story.detail.dedication && (
           <p className="story-detail-dedication">{story.detail.dedication}</p>

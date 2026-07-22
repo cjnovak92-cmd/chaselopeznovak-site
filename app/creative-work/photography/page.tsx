@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { photographs } from "@/content/photography";
+import { getPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = getPageMetadata({
   title: "Photography",
-};
+  path: "/creative-work/photography",
+});
 
 export default function PhotographyPage() {
   return (
@@ -16,7 +17,7 @@ export default function PhotographyPage() {
         </Link>
         <h1>Photography</h1>
         <p className="photography-index-count">
-          {photographs.length} photographs · Newest first
+          {photographs.length} photographs · Selected photography
         </p>
       </header>
 

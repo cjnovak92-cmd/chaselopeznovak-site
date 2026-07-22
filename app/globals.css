@@ -239,10 +239,18 @@ a {
 }
 
 .hero-wordmark {
-  font-size: clamp(4rem, 11vw, 8.5rem);
+  width: clamp(15rem, 32vw, 24rem);
+  margin: 0;
+  line-height: 0;
   transition:
     opacity var(--motion-duration-medium) var(--ease-editorial),
     transform var(--motion-duration-medium) var(--ease-editorial);
+}
+
+.hero-wordmark__image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .homepage-hero[data-wordmark-inactive] .hero-wordmark {
@@ -330,6 +338,18 @@ a {
   list-style: none;
 }
 
+.primary-navigation__list > li {
+  display: flex;
+  align-items: center;
+}
+
+.primary-navigation__list > li + li::before {
+  color: var(--color-border-strong);
+  content: "·";
+  font-family: var(--font-serif);
+  line-height: 1;
+}
+
 .primary-navigation__link {
   display: inline-flex;
   align-items: center;
@@ -353,6 +373,27 @@ a {
 .primary-navigation__link:hover {
   color: var(--color-foreground);
   text-decoration-color: var(--color-border-strong);
+}
+
+.colophon-portrait {
+  position: relative;
+  overflow: hidden;
+  width: clamp(6.5rem, 13vw, 8rem);
+  aspect-ratio: 1;
+  margin-block: 1.5rem 0.5rem;
+  border: 2px solid color-mix(in srgb, var(--color-brand-red) 70%, white);
+  border-radius: 50%;
+  background: var(--color-paper-raised);
+  box-shadow: var(--shadow-surface);
+}
+
+.colophon-portrait__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.35);
+  transform-origin: 50% 45%;
 }
 
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
@@ -845,6 +886,26 @@ button.timeline-event-button:hover {
   line-height: 1.6;
 }
 
+.timeline-event-details__astrology {
+  clear: both;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.timeline-event-details__astrology > p {
+  font-weight: 700;
+}
+
+.timeline-event-details__astrology ul {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-event-details__astrology li {
+  display: block;
+}
+
 .timeline-event-details__media {
   position: relative;
   clear: both;
@@ -883,7 +944,7 @@ button.timeline-event-button:hover {
 }
 
 .creative-work-introduction {
-  padding-block: clamp(1.75rem, 3vw, 2.75rem) clamp(1.5rem, 2.5vw, 2rem);
+  padding-block: clamp(1.25rem, 2vw, 1.75rem) clamp(1rem, 1.75vw, 1.25rem);
   text-align: center;
 }
 
@@ -1220,7 +1281,7 @@ button.timeline-event-button:hover {
 }
 
 .photography-index-header {
-  padding-block: clamp(3rem, 8vw, 6.5rem) clamp(2.5rem, 6vw, 4rem);
+  padding-block: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.25rem);
   text-align: center;
 }
 
@@ -1241,7 +1302,7 @@ button.timeline-event-button:hover {
 }
 
 .photography-index-header h1 {
-  margin-top: clamp(2rem, 5vw, 3.5rem);
+  margin-top: clamp(1rem, 2.5vw, 1.75rem);
   color: var(--color-brand-red);
   font-family: var(--font-serif);
   font-size: clamp(3.25rem, 10vw, 7rem);
@@ -1251,7 +1312,7 @@ button.timeline-event-button:hover {
 }
 
 .photography-index-count {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   color: var(--color-muted);
   font-family: var(--font-serif);
   font-style: italic;
@@ -1309,7 +1370,7 @@ button.timeline-event-button:hover {
 }
 
 .software-index-header {
-  padding-block: clamp(3rem, 8vw, 6.5rem) clamp(2.5rem, 6vw, 4rem);
+  padding-block: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.25rem);
   text-align: center;
 }
 
@@ -1330,7 +1391,7 @@ button.timeline-event-button:hover {
 }
 
 .software-index-header h1 {
-  margin-top: clamp(2rem, 5vw, 3.5rem);
+  margin-top: clamp(1rem, 2.5vw, 1.75rem);
   color: var(--software-accent);
   font-family: var(--font-serif);
   font-size: clamp(3.5rem, 10vw, 7rem);
@@ -1340,7 +1401,7 @@ button.timeline-event-button:hover {
 }
 
 .software-index-count {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   color: var(--color-muted);
   font-family: var(--font-serif);
   font-style: italic;
@@ -1394,7 +1455,7 @@ button.timeline-event-button:hover {
   align-items: flex-end;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: clamp(1.5rem, 4vw, 2.5rem);
+  padding: clamp(1.25rem, 3vw, 1.875rem);
 }
 
 .software-project-tile__number {
@@ -1408,7 +1469,7 @@ button.timeline-event-button:hover {
 .software-project-tile h2 {
   margin-top: 0.75rem;
   font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 7vw, 4.75rem);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
   font-weight: 500;
   letter-spacing: -0.05em;
   line-height: 0.92;
@@ -1546,8 +1607,15 @@ button.timeline-event-button:hover {
   }
 }
 
+@media (min-width: 40rem) {
+  .software-project-tile {
+    width: 75%;
+    margin-inline: auto;
+  }
+}
+
 .essay-index-header {
-  padding-block: clamp(3rem, 8vw, 6.5rem) clamp(2.5rem, 6vw, 4rem);
+  padding-block: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.25rem);
   text-align: center;
 }
 
@@ -1567,17 +1635,8 @@ button.timeline-event-button:hover {
   color: var(--color-foreground);
 }
 
-.essay-kicker {
-  margin-top: clamp(2rem, 5vw, 3.5rem);
-  color: var(--essay-accent);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-}
-
 .essay-index-header h1 {
-  margin-top: clamp(2rem, 5vw, 3.5rem);
+  margin-top: clamp(1rem, 2.5vw, 1.75rem);
   color: var(--essay-accent);
   font-family: var(--font-serif);
   font-size: clamp(3.5rem, 10vw, 7rem);
@@ -1587,7 +1646,7 @@ button.timeline-event-button:hover {
 }
 
 .essay-index-count {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   color: var(--color-muted);
   font-family: var(--font-serif);
   font-style: italic;
@@ -1646,7 +1705,7 @@ button.timeline-event-button:hover {
 }
 
 .essay-reader {
-  padding-block: clamp(3rem, 8vw, 6rem) var(--spacing-section);
+  padding-block: clamp(1.5rem, 4vw, 3rem) var(--spacing-section);
 }
 
 .essay-reader__header,
@@ -1668,7 +1727,7 @@ button.timeline-event-button:hover {
 }
 
 .essay-reader__context {
-  margin-top: clamp(1.75rem, 4vw, 2.5rem);
+  margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
   color: var(--color-muted);
   font-family: var(--font-serif);
   font-size: clamp(1rem, 2.4vw, 1.2rem);
@@ -1689,7 +1748,7 @@ button.timeline-event-button:hover {
 }
 
 .essay-reader__body {
-  margin-top: clamp(3rem, 7vw, 5rem);
+  margin-top: clamp(2rem, 4vw, 3.5rem);
   color: var(--color-foreground);
   font-family: var(--font-serif);
   font-size: clamp(1.15rem, 2.3vw, 1.35rem);
@@ -1762,7 +1821,7 @@ button.timeline-event-button:hover {
 
 .stories-index-header,
 .story-detail-header {
-  padding-block: clamp(3rem, 8vw, 6.5rem) clamp(2.5rem, 6vw, 4rem);
+  padding-block: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.25rem);
   text-align: center;
 }
 
@@ -1787,7 +1846,7 @@ button.timeline-event-button:hover {
 }
 
 .story-kicker {
-  margin-top: clamp(2rem, 5vw, 3.5rem);
+  margin-top: clamp(1rem, 2.5vw, 1.75rem);
   color: var(--story-accent);
   font-size: 0.75rem;
   font-weight: 800;
@@ -1813,9 +1872,94 @@ button.timeline-event-button:hover {
   font-size: clamp(3rem, 8vw, 6.25rem);
 }
 
+.story-detail-header h1.story-detail-title--stacked {
+  line-height: 0.88;
+}
+
+.story-detail-title--stacked > span {
+  display: block;
+}
+
+.manifesto-page {
+  border-bottom: 1px solid color-mix(in srgb, white 30%, transparent);
+  background: #075985;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.manifesto-page__content {
+  width: min(100%, 72rem);
+  min-height: calc(100svh - var(--spacing-masthead));
+  margin-inline: auto;
+  padding: clamp(3rem, 7vw, 6rem) var(--spacing-site-gutter)
+    clamp(4rem, 9vw, 8rem);
+  font-size: clamp(1.05rem, 2.1vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.28;
+  text-align: center;
+}
+
+.manifesto-page h1 {
+  margin: 0 0 clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.manifesto-page section + section {
+  margin-top: clamp(2rem, 4vw, 3.25rem);
+}
+
+.manifesto-page h2 {
+  font-size: clamp(1.5rem, 3.3vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  text-decoration: underline;
+  text-underline-offset: 0.08em;
+}
+
+.manifesto-page section > p,
+.manifesto-page__declaration > p {
+  margin-top: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.manifesto-page section > h2 + p {
+  margin-top: 0.15rem;
+}
+
+.manifesto-page__divider {
+  margin-block: clamp(2.25rem, 5vw, 3.75rem);
+}
+
+.manifesto-page__closing {
+  margin-top: clamp(2.25rem, 5vw, 3.75rem);
+}
+
+.manifesto-page__closing address {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  font-style: normal;
+}
+
+.manifesto-page a {
+  color: inherit;
+}
+
+.manifesto-page a:focus-visible {
+  outline-color: white;
+}
+
+@media (max-width: 24rem) {
+  .primary-navigation--masthead .primary-navigation__link {
+    padding-inline: 0.35rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.035em;
+  }
+}
+
 .stories-index-count,
 .story-detail-author {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   color: var(--color-muted);
   font-family: var(--font-serif);
   font-style: italic;
@@ -1823,7 +1967,7 @@ button.timeline-event-button:hover {
 
 .story-detail-dedication {
   width: min(100%, 28rem);
-  margin: 2rem auto 0;
+  margin: 1.25rem auto 0;
   color: var(--color-muted);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.85rem;
@@ -1832,7 +1976,7 @@ button.timeline-event-button:hover {
 
 .story-detail-sequence {
   display: inline-block;
-  margin-top: 1.75rem;
+  margin-top: 1.25rem;
   padding: 0.45rem 0.8rem;
   border: 1px solid color-mix(in srgb, var(--story-accent) 42%, transparent);
   border-radius: var(--radius-pill);

@@ -1,4 +1,4 @@
-import { Wordmark } from "@/components/Wordmark";
+import Image from "next/image";
 import { introduction, site } from "@/lib/content";
 
 export function Introduction() {
@@ -10,12 +10,17 @@ export function Introduction() {
     >
       <div className="mx-auto max-w-content px-site-gutter">
         <div className="hero-identity">
-          <Wordmark
-            name={site.name}
-            variant="vertical"
-            as="h1"
-            className="hero-wordmark"
-          />
+          <h1 aria-label={site.name} className="hero-wordmark">
+            <Image
+              src="/images/brand/chase-lopez-novak-wordmark.png"
+              alt=""
+              width={741}
+              height={758}
+              priority
+              sizes="(max-width: 48rem) 15rem, 24rem"
+              className="hero-wordmark__image"
+            />
+          </h1>
           <span
             id="hero-wordmark-sentinel"
             aria-hidden="true"

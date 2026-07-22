@@ -64,7 +64,7 @@ export const creativeWorkCategories = [
     title: "Stories",
     accent: "blue",
     image: {
-      src: "/images/stories/the-information-wars-preview.png",
+      src: "/images/stories/the-information-wars-preview.webp",
       alt: `Title-page preview for “${theInformationWars.title}.”`,
       width: 1136,
       height: 506,

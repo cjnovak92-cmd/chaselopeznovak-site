@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>CLN monogram</title>
+  <rect width="64" height="64" fill="#f7f9fc"/>
+  <path fill="#005bbb" d="M4 10h18v7H11v30h11v7H4z"/>
+  <path fill="#187635" d="M25 10h7v37h8v7H25z"/>
+  <path fill="#cc342d" d="M42 10h6l8 25V10h6v44h-6l-8-25v25h-6z"/>
+</svg>

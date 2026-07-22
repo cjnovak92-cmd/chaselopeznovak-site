@@ -12,6 +12,20 @@ export function TimelineEventDetails({
   onClearSelection,
   detailId,
 }: TimelineEventDetailsProps) {
+  const astrologyMarker = "\nAstrology:";
+  const astrologyIndex = event.description?.indexOf(astrologyMarker) ?? -1;
+  const description =
+    astrologyIndex >= 0
+      ? event.description?.slice(0, astrologyIndex).trim()
+      : event.description;
+  const astrology =
+    astrologyIndex >= 0
+      ? event.description
+          ?.slice(astrologyIndex + astrologyMarker.length)
+          .trim()
+          .split(/,\s*/)
+      : undefined;
+
   return (
     <article
       id={detailId}
@@ -32,9 +46,19 @@ export function TimelineEventDetails({
       </div>
 
       {event.description && (
-        <p className="timeline-event-details__description">
-          {event.description}
-        </p>
+        <div className="timeline-event-details__description">
+          <p>{description}</p>
+          {astrology && (
+            <div className="timeline-event-details__astrology">
+              <p>Astrology:</p>
+              <ul>
+                {astrology.map((detail) => (
+                  <li key={detail}>{detail}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
       )}
 
       {event.image && event.imageAlt && (
